@@ -8,6 +8,7 @@
     "rename-desktop-file": "evince.desktop",
     "rename-appdata-file": "evince.appdata.xml",
     "rename-icon": "evince",
+    "copy-icon": true,
     "tags": [],
     "finish-args": [
         /* X11 + XShm access */
@@ -16,6 +17,8 @@
         "--socket=wayland",
         /* We want full fs access so we can read the files */
         "--filesystem=host",
+        /* media keys */
+        "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
         /* Needed for dconf to work */
         "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
@@ -40,20 +43,22 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://poppler.freedesktop.org/poppler-data-0.4.7.tar.gz",
-                    "sha256": "e752b0d88a7aba54574152143e7bf76436a7ef51977c55d6bd9a48dccde3a7de"
+                    "url": "http://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz",
+                    "sha256": "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
                 }
             ]
         },
         {
             "name": "poppler",
-            "config-opts": [ "--disable-libopenjpeg" ],
+            "buildsystem": "cmake-ninja",
+            "config-opts": ["-DCMAKE_INSTALL_LIBDIR=/app/lib", "-DCMAKE_INSTALL_INCLUDEDIR=/app/include",
+                            "-DENABLE_LIBOPENJPEG=none"],
             "cleanup": [ "/bin" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://poppler.freedesktop.org/poppler-0.36.0.tar.xz",
-                    "sha256": "93cc067b23c4ef7421380d3e8bd7c940b2027668446750787d7c1cb42720248e"
+                    "url": "http://poppler.freedesktop.org/poppler-0.61.0.tar.xz",
+                    "sha256": "53cde17a2afa3b73eb8b209d24e4369b52bfac444065dbb0a8cbcc7356582b7f"
                 }
             ]
         },
@@ -63,8 +68,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.24/evince-3.24.0.tar.xz",
-                    "sha256": "043895af7bbd6f1b57f9ab8778e78cf9c0af5dfcc347eaa94a17bf864c04dc8f"
+                    "url": "https://download.gnome.org/sources/evince/3.26/evince-3.26.0.tar.xz",
+                    "sha256": "79567bdb743cf0c3ed7b638da32afc9b850298f9b4edd532455df4a7e2a4c9d8"
                 }
             ]
         }
