@@ -68,8 +68,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://poppler.freedesktop.org/poppler-0.61.0.tar.xz",
-                    "sha256": "53cde17a2afa3b73eb8b209d24e4369b52bfac444065dbb0a8cbcc7356582b7f"
+                    "url": "https://poppler.freedesktop.org/poppler-0.63.0.tar.xz",
+                    "sha256": "27cc8addafc791e1a26ce6acc2b490926ea73a4f89196dd8a7742cff7cf8a111"
                 }
             ]
         },
