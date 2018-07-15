@@ -19,8 +19,9 @@
         "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf",
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
-        "--talk-name=org.gtk.vfs", 
-        "--talk-name=org.gtk.vfs.*"
+        "--talk-name=org.gtk.vfs",
+        "--talk-name=org.gtk.vfs.*",
+        "--talk-name=org.gnome.SessionManager"
     ],
     "build-options": {
         "cflags": "-O2 -g",
@@ -50,9 +51,9 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "http://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz",
-                    "sha256": "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
+                    "type" : "archive",
+                    "url" : "http://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz",
+                    "sha256" : "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
                 }
             ]
         },
@@ -69,9 +70,9 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-0.63.0.tar.xz",
-                    "sha256": "27cc8addafc791e1a26ce6acc2b490926ea73a4f89196dd8a7742cff7cf8a111"
+                    "type" : "archive",
+                    "url" : "https://poppler.freedesktop.org/poppler-0.66.0.tar.xz",
+                    "sha256" : "2c096431adfb74bc2f53be466889b7646e1b599f28fa036094f3f7235cc9eae7"
                 }
             ]
         },
@@ -127,8 +128,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.28/evince-3.28.0.tar.xz",
-                    "sha256": "fa23264b65e140afb8ec27b070a277bda748d9d4a86788240d9f3514346573a8"
+                    "url": "https://download.gnome.org/sources/evince/3.28/evince-3.28.2.tar.xz",
+                    "sha256": "0955d22d85c9f6d322b6cbb464f1cc4c352db619017ec95dad4cc5c3440f73e1"
                 }
             ]
         }
