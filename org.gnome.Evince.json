@@ -164,12 +164,24 @@
             "config-opts": [
                 "--disable-nautilus"
             ],
+            "rm-configure" : true,
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/evince/3.30/evince-3.30.0.tar.xz",
-                    "sha256": "cbd02d1c515fd7f17af1c96935e456d6ccba4d612d2d972a12079cc6b24e8cb9"
-                }
+                    "sha256": "cbd02d1c515fd7f17af1c96935e456d6ccba4d612d2d972a12079cc6b24e8cb9",
+                    "git-init" : true
+                },
+                {
+                    "type": "patch",
+                    "path" : "evince-3.30.0-fix-dbus-names.patch",
+                    "use-git-am" : true
+                },
+		{
+		   "type": "patch",
+		   "path" : "evince-3.30.0-dbus-systemd.patch",
+		   "use-git-am" : true
+		}
             ]
         }
     ]
