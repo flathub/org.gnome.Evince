@@ -18,7 +18,9 @@
         "--env=GDK_PIXBUF_MODULE_FILE=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache",
         "--talk-name=org.gtk.vfs",
         "--talk-name=org.gtk.vfs.*",
-        "--talk-name=org.gnome.SessionManager"
+        "--talk-name=org.gnome.SessionManager",
+        "--own-name=org.gnome.evince",
+        "--own-name=org.gnome.evince.Daemon"
     ],
     "build-options": {
         "cflags": "-O2 -g",
@@ -164,24 +166,13 @@
             "config-opts": [
                 "--disable-nautilus"
             ],
-            "rm-configure" : true,
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/evince/3.30/evince-3.30.0.tar.xz",
                     "sha256": "cbd02d1c515fd7f17af1c96935e456d6ccba4d612d2d972a12079cc6b24e8cb9",
                     "git-init" : true
-                },
-                {
-                    "type": "patch",
-                    "path" : "evince-3.30.0-fix-dbus-names.patch",
-                    "use-git-am" : true
-                },
-		{
-		   "type": "patch",
-		   "path" : "evince-3.30.0-dbus-systemd.patch",
-		   "use-git-am" : true
-		}
+                }
             ]
         }
     ]
