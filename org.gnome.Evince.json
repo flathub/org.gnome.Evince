@@ -43,26 +43,33 @@
     ],
     "modules": [
         {
-            "name" : "openjpeg",
-            "buildsystem" : "cmake-ninja",
-            "config-opts" : [
+            "name": "openjpeg",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
                 "-DBUILD_CODEC=OFF"
             ],
-            "cleanup" : [
+            "cleanup": [
                 "/lib/openjpeg-2.3"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://github.com/uclouvain/openjpeg.git",
-                    "commit" : "d2205ba2ee78faeea659263383446c4472b1f9df"
+                    "type": "git",
+                    "url": "https://github.com/uclouvain/openjpeg.git",
+                    "commit": "d2205ba2ee78faeea659263383446c4472b1f9df"
                 }
             ]
         },
         {
             "name": "libwebp",
-            "config-opts": [ "--disable-static", "--enable-libwebpmux", "--enable-libwebpdemux" ],
-            "cleanup": [ "/share", "/bin" ],
+            "config-opts": [
+                "--disable-static",
+                "--enable-libwebpmux",
+                "--enable-libwebpdemux"
+            ],
+            "cleanup": [
+                "/share",
+                "/bin"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -73,7 +80,7 @@
         },
         {
             "name": "webp-pixbuf-loader",
-            "buildsystem" : "cmake-ninja",
+            "buildsystem": "cmake-ninja",
             "sources": [
                 {
                     "type": "git",
@@ -94,9 +101,9 @@
             ],
             "sources": [
                 {
-                    "type" : "archive",
-                    "url" : "http://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz",
-                    "sha256" : "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
+                    "type": "archive",
+                    "url": "http://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz",
+                    "sha256": "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
                 }
             ]
         },
@@ -112,9 +119,9 @@
             ],
             "sources": [
                 {
-                    "type" : "archive",
-                    "url" : "https://poppler.freedesktop.org/poppler-0.68.0.tar.xz",
-                    "sha256" : "f90d04f0fb8df6923ecb0f106ae866cf9f8761bb537ddac64dfb5322763d0e58"
+                    "type": "archive",
+                    "url": "https://poppler.freedesktop.org/poppler-0.68.0.tar.xz",
+                    "sha256": "f90d04f0fb8df6923ecb0f106ae866cf9f8761bb537ddac64dfb5322763d0e58"
                 }
             ]
         },
@@ -146,28 +153,28 @@
             ]
         },
         {
-            "name" : "gspell",
-            "cleanup" : [
+            "name": "gspell",
+            "cleanup": [
                 "/bin"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.1.tar.xz",
-                    "sha256" : "819a1d23c7603000e73f5e738bdd284342e0cd345fb0c7650999c31ec741bbe5"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.1.tar.xz",
+                    "sha256": "819a1d23c7603000e73f5e738bdd284342e0cd345fb0c7650999c31ec741bbe5"
                 }
             ],
-            "modules" : [
+            "modules": [
                 {
-                    "name" : "enchant2",
-                    "cleanup" : [
+                    "name": "enchant2",
+                    "cleanup": [
                         "/bin"
                     ],
-                    "sources" : [
+                    "sources": [
                         {
-                            "type" : "archive",
-                            "url" : "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
-                            "sha256" : "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
+                            "type": "archive",
+                            "url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
+                            "sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
                         }
                     ]
                 }
