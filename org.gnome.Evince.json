@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.28",
+    "runtime-version": "3.30",
     "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -60,25 +60,6 @@
             ]
         },
         {
-            "name": "libwebp",
-            "config-opts": [
-                "--disable-static",
-                "--enable-libwebpmux",
-                "--enable-libwebpdemux"
-            ],
-            "cleanup": [
-                "/share",
-                "/bin"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/webmproject/libwebp/archive/v1.0.0.tar.gz",
-                    "sha256": "c5c5ebf979543ac1f3348df8f6245262abd787a147b9632c880d92bfc38dbbeb"
-                }
-            ]
-        },
-        {
             "name": "webp-pixbuf-loader",
             "buildsystem": "cmake-ninja",
             "sources": [
@@ -90,7 +71,7 @@
             ],
             "post-install": [
                 "GDK_PIXBUF_MODULEDIR=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders/ gdk-pixbuf-query-loaders > loaders.cache",
-                "cat /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache loaders.cache > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
+                "cat /usr/lib/*/gdk-pixbuf-2.0/2.10.0/loaders.cache loaders.cache > /app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
             ]
         },
         {
@@ -162,21 +143,6 @@
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.1.tar.xz",
                     "sha256": "819a1d23c7603000e73f5e738bdd284342e0cd345fb0c7650999c31ec741bbe5"
-                }
-            ],
-            "modules": [
-                {
-                    "name": "enchant2",
-                    "cleanup": [
-                        "/bin"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz",
-                            "sha256": "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
-                        }
-                    ]
                 }
             ]
         },
