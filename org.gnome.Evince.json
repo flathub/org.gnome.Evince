@@ -117,6 +117,9 @@
                 "-Denable-test=false",
                 "-Ddisable-introspection=true"
             ],
+            "cleanup": [
+                "/bin"
+            ],
             "sources": [
                 {
                     "type": "archive",
