@@ -41,23 +41,6 @@
     ],
     "modules": [
         {
-            "name": "openjpeg",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DBUILD_CODEC=OFF"
-            ],
-            "cleanup": [
-                "/lib/openjpeg-2.3"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/uclouvain/openjpeg.git",
-                    "commit": "d2205ba2ee78faeea659263383446c4472b1f9df"
-                }
-            ]
-        },
-        {
             "name": "webp-pixbuf-loader",
             "buildsystem": "cmake-ninja",
             "sources": [
@@ -91,7 +74,8 @@
             "buildsystem": "cmake-ninja",
             "config-opts": [
                 "-DCMAKE_INSTALL_LIBDIR=/app/lib",
-                "-DCMAKE_INSTALL_INCLUDEDIR=/app/include"
+                "-DCMAKE_INSTALL_INCLUDEDIR=/app/include",
+                "-DENABLE_LIBOPENJPEG=openjpeg2"
             ],
             "cleanup": [
                 "/bin"
