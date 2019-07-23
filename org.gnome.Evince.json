@@ -75,6 +75,12 @@
             "config-opts": [
                 "-DCMAKE_INSTALL_LIBDIR=/app/lib",
                 "-DCMAKE_INSTALL_INCLUDEDIR=/app/include",
+                "-DBUILD_GTK_TESTS=OFF",
+                "-DBUILD_CPP_TESTS=OFF",
+                "-DENABLE_SPLASH=OFF",
+                "-DENABLE_UTILS=OFF",
+                "-DENABLE_CPP=OFF",
+                "-DENABLE_GOBJECT_INTROSPECTION=OFF",
                 "-DENABLE_LIBOPENJPEG=openjpeg2"
             ],
             "cleanup": [
