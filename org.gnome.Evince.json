@@ -163,7 +163,8 @@
         {
             "name": "evince",
             "config-opts": [
-                "--disable-nautilus"
+                "--disable-nautilus",
+                "--disable-thumbnailer"
             ],
             "sources": [
                 {
