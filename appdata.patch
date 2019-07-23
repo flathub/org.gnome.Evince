@@ -1,0 +1,12 @@
+diff --git a/org.gnome.Evince.appdata.xml.in b/org.gnome.Evince.appdata.xml.in
+index 2d4e5248..898c0ebb 100644
+--- a/org.gnome.Evince.appdata.xml.in
++++ b/org.gnome.Evince.appdata.xml.in
+@@ -81,4 +81,7 @@
+     <content_attribute id="money-purchasing">none</content_attribute>
+     <content_attribute id="money-gambling">none</content_attribute>
+   </content_rating>
++  <releases>
++    <release version="3.32.0" date="2019-03-14" />
++  </releases>
+ </component>
