@@ -171,14 +171,10 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.32/evince-3.32.0.tar.xz",
-                    "sha256": "f0d977216466ed2f5a6de64476ef7113dc7c7c9832336f1ff07f3c03c5324c40",
+                    "url": "https://download.gnome.org/sources/evince/3.32/evince-3.32.1.tar.xz",
+                    "sha256": "bdb49e7705b6b3599fd5882a0648bba018b6de322a0db4e814382c6697c63d36",
                     "git-init" : true
                 },
-                {
-                    "type": "patch",
-                    "path": "appdata.patch"
-                }
             ]
         }
     ]
