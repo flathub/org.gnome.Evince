@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.32",
+    "runtime-version": "3.34",
     "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -11,10 +11,7 @@
         "--socket=wayland",
         "--filesystem=host",
         "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
-        "--filesystem=xdg-run/dconf",
-        "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf",
-        "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        "--metadata=X-DConf=migrate-path=/org/gnome/evince/",
         "--env=GDK_PIXBUF_MODULE_FILE=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache",
         "--talk-name=org.gtk.vfs",
         "--talk-name=org.gtk.vfs.*",
@@ -49,7 +46,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/aruiz/webp-pixbuf-loader.git",
-                    "commit": "9b92950d49d7939f90ba7413deb7ec6b392b2054"
+                    "commit": "ddbcacf37d98aeca24429ee2cd975fb804d1f265"
                 }
             ],
             "post-install": [
@@ -91,8 +88,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-0.79.0.tar.xz",
-                    "sha256": "f985a4608fe592d2546d9d37d4182e502ff6b4c42f8db4be0a021a1c369528c8"
+                    "url": "https://poppler.freedesktop.org/poppler-0.81.0.tar.xz",
+                    "sha256": "212d020b035b67b36c9666bd08ac778dff3222d85c01c338787d546f0f9bfe02"
                 }
             ]
         },
@@ -138,8 +135,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.1.tar.xz",
-                    "sha256": "819a1d23c7603000e73f5e738bdd284342e0cd345fb0c7650999c31ec741bbe5"
+                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.2.tar.xz",
+                    "sha256": "bb9195c3a95bacf556d0203e9691f7489e0d3bc5ae1e5a440c89b2f2435d3ed6"
                 }
             ]
         },
@@ -157,8 +154,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/3.32/gnome-desktop-3.32.2.tar.xz",
-                    "sha256": "099f71b29310c999c28f2bf272c846bbd7efc8c6c438b37d15f374230ce92d2e"
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.34/gnome-desktop-3.34.0.tar.xz",
+                    "sha256": "8d331ee655c1d56b2b97562a07c7a7598ff6706a11ff1cdce97423ebc6b62426"
                 }
             ]
         },
