@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.34",
+    "runtime-version": "3.36",
     "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -88,8 +88,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-0.82.0.tar.xz",
-                    "sha256": "234f8e573ea57fb6a008e7c1e56bfae1af5d1adf0e65f47555e1ae103874e4df"
+                    "url": "https://poppler.freedesktop.org/poppler-0.87.0.tar.xz",
+                    "sha256": "6f602b9c24c2d05780be93e7306201012e41459f289b8279a27a79431ad4150e"
                 }
             ]
         },
@@ -135,8 +135,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.2.tar.xz",
-                    "sha256": "bb9195c3a95bacf556d0203e9691f7489e0d3bc5ae1e5a440c89b2f2435d3ed6"
+                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.3.tar.xz",
+                    "sha256": "5ae514dd0216be069176accf6d0049d6a01cfa6a50df4bc06be85f7080b62de8"
                 }
             ]
         },
@@ -154,8 +154,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/3.34/gnome-desktop-3.34.1.tar.xz",
-                    "sha256": "c1dbeb5666dad27166c769e48e2ab41dd5ed74718ea35eb57c8488790662dc5a"
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.36/gnome-desktop-3.36.1.tar.xz",
+                    "sha256": "8c6fe59e567f134e4f6508d968d5d09cbe12382d18af9a11a4f51ada6c80a880"
                 }
             ]
         },
@@ -168,8 +168,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.34/evince-3.34.2.tar.xz",
-                    "sha256": "3cc0955f11204e3a2db1c7ab99b866692749592257485b87304134ad69da0617",
+                    "url": "https://download.gnome.org/sources/evince/3.36/evince-3.36.0.tar.xz",
+                    "sha256": "851d9b5234d479ab4c8f7c5cbaceb0e91ad79ccba1a7b733cde72dacc928fba8",
                     "git-init" : true
                 }
             ]
