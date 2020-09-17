@@ -154,8 +154,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/3.36/gnome-desktop-3.36.5.tar.xz",
-                    "sha256": "eea1242994109fa3f05793963ee25c3df23bc84b0f0b81f03ec3c294c27ab753"
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.38/gnome-desktop-3.38.0.tar.xz",
+                    "sha256": "089dbbe3c66fe5575659a4a385d5d4bbd99cf637034df317f21cf586b5dd6b90"
                 }
             ]
         },
