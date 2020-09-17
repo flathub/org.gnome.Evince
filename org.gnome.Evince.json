@@ -161,15 +161,16 @@
         },
         {
             "name": "evince",
+            "buildsystem": "meson",
             "config-opts": [
-                "--disable-nautilus",
-                "--disable-thumbnailer"
+                "-Dnautilus=false",
+                "-Dthumbnailer=false"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.36/evince-3.36.7.tar.xz",
-                    "sha256": "65d61a423e3fbbe07001f65e87422dfb7d2e42b9edf0ca6a1d427af9a04b8f32",
+                    "url": "https://download.gnome.org/sources/evince/3.38/evince-3.38.0.tar.xz",
+                    "sha256": "26df897a417545b476d2606b14731122e84278ae994bd64ea535449c3cf01948",
                     "git-init" : true
                 }
             ]
