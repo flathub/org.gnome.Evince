@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.36",
+    "runtime-version": "3.38",
     "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -88,8 +88,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-20.08.0.tar.xz",
-                    "sha256": "ae65fef04bbf63259a6352e7b620719115d4fb97f5079b0b8b00a8eb0c86eca5"
+                    "url": "https://poppler.freedesktop.org/poppler-20.09.0.tar.xz",
+                    "sha256": "4ed6eb5ddc4c37f2435c9d78ff9c7c4036455aea3507d1ce8400070aab745363"
                 }
             ]
         },
@@ -135,8 +135,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.3.tar.xz",
-                    "sha256": "5ae514dd0216be069176accf6d0049d6a01cfa6a50df4bc06be85f7080b62de8"
+                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz",
+                    "sha256": "cf4d16a716e813449bd631405dc1001ea89537b8cdae2b8abfb3999212bd43b4"
                 }
             ]
         },
@@ -154,22 +154,23 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/3.36/gnome-desktop-3.36.5.tar.xz",
-                    "sha256": "eea1242994109fa3f05793963ee25c3df23bc84b0f0b81f03ec3c294c27ab753"
+                    "url": "https://download.gnome.org/sources/gnome-desktop/3.38/gnome-desktop-3.38.0.tar.xz",
+                    "sha256": "089dbbe3c66fe5575659a4a385d5d4bbd99cf637034df317f21cf586b5dd6b90"
                 }
             ]
         },
         {
             "name": "evince",
+            "buildsystem": "meson",
             "config-opts": [
-                "--disable-nautilus",
-                "--disable-thumbnailer"
+                "-Dnautilus=false",
+                "-Dthumbnailer=false"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.36/evince-3.36.7.tar.xz",
-                    "sha256": "65d61a423e3fbbe07001f65e87422dfb7d2e42b9edf0ca6a1d427af9a04b8f32",
+                    "url": "https://download.gnome.org/sources/evince/3.38/evince-3.38.0.tar.xz",
+                    "sha256": "26df897a417545b476d2606b14731122e84278ae994bd64ea535449c3cf01948",
                     "git-init" : true
                 }
             ]
