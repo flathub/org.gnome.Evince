@@ -88,8 +88,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-20.09.0.tar.xz",
-                    "sha256": "4ed6eb5ddc4c37f2435c9d78ff9c7c4036455aea3507d1ce8400070aab745363"
+                    "url": "https://poppler.freedesktop.org/poppler-21.02.0.tar.xz",
+                    "sha256": "5c14759c99891e6e472aced6d5f0ff1dacf85d80cd9026d365c55c653edf792c"
                 }
             ]
         },
@@ -169,8 +169,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.38/evince-3.38.0.tar.xz",
-                    "sha256": "26df897a417545b476d2606b14731122e84278ae994bd64ea535449c3cf01948",
+                    "url": "https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz",
+                    "sha256": "27d419d5fed6305e074628edcfde0cb734fffda205d63cac323391c04903bd94",
                     "git-init" : true
                 }
             ]
