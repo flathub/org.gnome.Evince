@@ -13,6 +13,9 @@
         "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
         "--metadata=X-DConf=migrate-path=/org/gnome/evince/",
         "--env=GDK_PIXBUF_MODULE_FILE=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache",
+        "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf",
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
         "--talk-name=org.gtk.vfs",
         "--talk-name=org.gtk.vfs.*",
         "--talk-name=org.gnome.SessionManager",
@@ -64,7 +67,12 @@
                 {
                     "type": "archive",
                     "url": "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz",
-                    "sha256": "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
+                    "sha256": "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 3687,
+                        "url-template": "https://poppler.freedesktop.org/poppler-data-$version.tar.gz"
+                    }
                 }
             ]
         },
@@ -89,7 +97,12 @@
                 {
                     "type": "archive",
                     "url": "https://poppler.freedesktop.org/poppler-21.02.0.tar.xz",
-                    "sha256": "5c14759c99891e6e472aced6d5f0ff1dacf85d80cd9026d365c55c653edf792c"
+                    "sha256": "5c14759c99891e6e472aced6d5f0ff1dacf85d80cd9026d365c55c653edf792c",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 3686,
+                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.gz"
+                    }
                 }
             ]
         },
@@ -105,7 +118,12 @@
                 {
                     "type": "archive",
                     "url": "https://downloads.sourceforge.net/project/djvu/DjVuLibre/3.5.27/djvulibre-3.5.27.tar.gz",
-                    "sha256": "e69668252565603875fb88500cde02bf93d12d48a3884e472696c896e81f505f"
+                    "sha256": "e69668252565603875fb88500cde02bf93d12d48a3884e472696c896e81f505f",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 10159,
+                        "url-template": "https://downloads.sourceforge.net/project/djvu/DjVuLibre/$version/djvulibre-$version.tar.gz"
+                    }
                 }
             ]
         },
@@ -121,9 +139,15 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz",
-                    "sha256": "1a939fc8fcea9471b7eca46b1ac90cff89a30d26f65c7c9a375a4bf91223fa94"
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libgxps.git",
+                    "tag": "0.3.1",
+                    "commit": "1e508695c38ede224464ab3117777a2e65cf17ae",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 1629,
+                        "tag-template": "$version"
+                    }
                 }
             ]
         },
@@ -134,9 +158,15 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz",
-                    "sha256": "cf4d16a716e813449bd631405dc1001ea89537b8cdae2b8abfb3999212bd43b4"
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gspell.git",
+                    "tag": "1.9.1",
+                    "commit": "5300d93dae00998801ef1be48da71dac4e2ebd1b",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 9528,
+                        "tag-template": "$version"
+                    }
                 }
             ]
         },
@@ -153,9 +183,43 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/3.38/gnome-desktop-3.38.0.tar.xz",
-                    "sha256": "089dbbe3c66fe5575659a4a385d5d4bbd99cf637034df317f21cf586b5dd6b90"
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-desktop.git",
+                    "tag": "3.38.4",
+                    "commit": "8662b94232a2d65f1aa76acb3d9e20a8b70489cf",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 13127,
+                        "tag-template": "$version"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "libhandy",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dgtk_doc=false",
+                "-Dtests=false",
+                "-Dexamples=false",
+                "-Dvapi=false",
+                "-Dglade_catalog=disabled"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libhandy.git",
+                    "tag": "1.0.0",
+                    "commit": "94313c206258860b2428712e7ece1d02c5177857",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 114486,
+                        "tag-template": "$version"
+                    }
                 }
             ]
         },
@@ -168,10 +232,15 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz",
-                    "sha256": "27d419d5fed6305e074628edcfde0cb734fffda205d63cac323391c04903bd94",
-                    "git-init" : true
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/evince.git",
+                    "tag": "3.39.2",
+                    "commit": "fa7a77fbba13ce756115e1c6e8fde0d5c2bb3adf",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 8178,
+                        "tag-template": "$version"
+                    }
                 }
             ]
         }
