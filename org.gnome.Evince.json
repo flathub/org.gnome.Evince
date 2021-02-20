@@ -19,7 +19,6 @@
         "--talk-name=org.freedesktop.FileManager1",
         "--own-name=org.gnome.evince",
         "--own-name=org.gnome.evince.Daemon",
-        /* Commit 8f428fd7683765dd706da06e9f376d3732ce5c0c required for dbus service exports matching own name above */
         "--require-version=0.11.6"
     ],
     "build-options": {
@@ -64,8 +63,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz",
-                    "sha256": "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012",
+                    "url": "https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz",
+                    "sha256": "6e2fcef66ec8c44625f94292ccf8af9f1d918b410d5aa69c274ce67387967b30",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3687,
@@ -115,8 +114,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://downloads.sourceforge.net/project/djvu/DjVuLibre/3.5.27/djvulibre-3.5.27.tar.gz",
-                    "sha256": "e69668252565603875fb88500cde02bf93d12d48a3884e472696c896e81f505f",
+                    "url": "https://downloads.sourceforge.net/project/djvu/DjVuLibre/3.5.28/djvulibre-3.5.28.tar.gz",
+                    "sha256": "fcd009ea7654fde5a83600eb80757bd3a76998e47d13c66b54c8db849f8f2edc",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 10159,
@@ -187,7 +186,7 @@
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz",
                     "sha256": "27d419d5fed6305e074628edcfde0cb734fffda205d63cac323391c04903bd94",
-                    "git-init" : true
+                    "git-init": true
                 }
             ]
         }
