@@ -99,7 +99,7 @@
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
-                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.gz"
+                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
                     }
                 }
             ]
