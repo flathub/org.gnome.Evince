@@ -2,7 +2,7 @@
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.38",
-    "branch": "stable",
+    "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
     "finish-args": [
