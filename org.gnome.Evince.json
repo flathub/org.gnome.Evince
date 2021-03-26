@@ -2,7 +2,7 @@
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.38",
-    "branch": "stable",
+    "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
     "finish-args": [
@@ -19,7 +19,6 @@
         "--talk-name=org.freedesktop.FileManager1",
         "--own-name=org.gnome.evince",
         "--own-name=org.gnome.evince.Daemon",
-        /* Commit 8f428fd7683765dd706da06e9f376d3732ce5c0c required for dbus service exports matching own name above */
         "--require-version=0.11.6"
     ],
     "build-options": {
@@ -99,7 +98,7 @@
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
-                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.gz"
+                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
                     }
                 }
             ]
@@ -187,7 +186,7 @@
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz",
                     "sha256": "27d419d5fed6305e074628edcfde0cb734fffda205d63cac323391c04903bd94",
-                    "git-init" : true
+                    "git-init": true
                 }
             ]
         }
