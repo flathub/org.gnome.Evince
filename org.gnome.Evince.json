@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.38",
+    "runtime-version": "40",
     "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -137,8 +137,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz",
-                    "sha256": "1a939fc8fcea9471b7eca46b1ac90cff89a30d26f65c7c9a375a4bf91223fa94"
+                    "url": "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz",
+                    "sha256": "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c"
                 }
             ]
         },
@@ -150,8 +150,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz",
-                    "sha256": "cf4d16a716e813449bd631405dc1001ea89537b8cdae2b8abfb3999212bd43b4"
+                    "url": "https://download.gnome.org/sources/gspell/1.9/gspell-1.9.1.tar.xz",
+                    "sha256": "dcbb769dfdde8e3c0a8ed3102ce7e661abbf7ddf85df08b29915e92cd723abdd"
                 }
             ]
         },
@@ -169,8 +169,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/3.38/gnome-desktop-3.38.0.tar.xz",
-                    "sha256": "089dbbe3c66fe5575659a4a385d5d4bbd99cf637034df317f21cf586b5dd6b90"
+                    "url": "https://download.gnome.org/sources/gnome-desktop/40/gnome-desktop-40.0.tar.xz",
+                    "sha256": "20abfd3f831e4e8092b55839311661dc73b2bf13fc9bef71c4a5a4475da9ee04"
                 }
             ]
         },
@@ -184,8 +184,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz",
-                    "sha256": "27d419d5fed6305e074628edcfde0cb734fffda205d63cac323391c04903bd94",
+                    "url": "https://download.gnome.org/sources/evince/40/evince-40.1.tar.xz",
+                    "sha256": "7a666363c350af2e3bbba7f14b3c1befc5012f9ed3d9d073447f4c59f33dcf2d",
                     "git-init": true
                 }
             ]
