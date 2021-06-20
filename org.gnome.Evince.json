@@ -9,6 +9,7 @@
         "--share=ipc",
         "--socket=x11",
         "--socket=wayland",
+        "--socket=pulseaudio",
         "--filesystem=host",
         "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
         "--metadata=X-DConf=migrate-path=/org/gnome/evince/",
