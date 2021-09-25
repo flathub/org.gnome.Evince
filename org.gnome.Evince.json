@@ -10,7 +10,12 @@
         "--socket=x11",
         "--socket=wayland",
         "--socket=pulseaudio",
-        "--filesystem=host",
+        /* For external hot-plugging devices such USB Flash drives, HDD, SSD */
+        "--filesystem=/media:ro",
+        "--filesystem=/run/media:ro",
+        /* For old distros with outdated portals which could have some issues and annoyances for users */
+        "--filesystem=xdg-documents",
+        "--filesystem=xdg-download",
         "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
         "--metadata=X-DConf=migrate-path=/org/gnome/evince/",
         "--env=GDK_PIXBUF_MODULE_FILE=/app/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache",
