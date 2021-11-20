@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "40",
+    "runtime-version": "41",
     "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -169,8 +169,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/40/gnome-desktop-40.0.tar.xz",
-                    "sha256": "20abfd3f831e4e8092b55839311661dc73b2bf13fc9bef71c4a5a4475da9ee04"
+                    "url": "https://download.gnome.org/sources/gnome-desktop/41/gnome-desktop-41.1.tar.xz",
+                    "sha256": "be8aafa64d7ba2fd31079eed639d39fda1ea77ef77d35a678f019c4d91d473c2"
                 }
             ]
         },
@@ -184,8 +184,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/40/evince-40.1.tar.xz",
-                    "sha256": "7a666363c350af2e3bbba7f14b3c1befc5012f9ed3d9d073447f4c59f33dcf2d",
+                    "url": "https://download.gnome.org/sources/evince/41/evince-41.3.tar.xz",
+                    "sha256": "3346b01f9bdc8f2d5ffea92f110a090c64a3624942b5b543aad4592a9de33bb0",
                     "git-init": true
                 }
             ]
