@@ -179,7 +179,8 @@
             "buildsystem": "meson",
             "config-opts": [
                 "-Dnautilus=false",
-                "-Dthumbnailer=false"
+                "-Dthumbnailer=false",
+                "-Dgtk_doc=false"
             ],
             "sources": [
                 {
