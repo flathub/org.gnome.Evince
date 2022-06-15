@@ -171,8 +171,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://libarchive.org/downloads/libarchive-3.6.0.tar.xz",
-                    "sha256": "df283917799cb88659a5b33c0a598f04352d61936abcd8a48fe7b64e74950de7"
+                    "url": "https://libarchive.org/downloads/libarchive-3.6.1.tar.xz",
+                    "sha256": "5a411aceb978f43e626f0c2d1812ddd8807b645ed892453acabd532376c148e6"
                 }
             ]
         },
@@ -190,8 +190,12 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/42/gnome-desktop-42.0.tar.xz",
-                    "sha256": "f3caa293a5e86f6ccad18f817273db1c67061e680d79d839aa8a7528e5bb26d6"
+                    "url": "https://download.gnome.org/sources/gnome-desktop/42/gnome-desktop-42.1.tar.xz",
+                    "sha256": "2433ab606d244c3524de5b812094db8a670fb11ed9ff7180c2d021ae1fc9fc05",
+                    "x-checker-data" : {
+                         "type" : "gnome",
+                         "name" : "gnome-desktop"
+                     }
                 }
             ]
         },
@@ -206,9 +210,13 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/42/evince-42.1.tar.xz",
-                    "sha256": "b24767bb3d5103b4e35b0e15cf033dbe2488f88700cdd882d22a43adeec2e80a",
-                    "git-init": true
+                    "url": "https://download.gnome.org/sources/evince/42/evince-42.3.tar.xz",
+                    "sha256": "49aecf845c946c96db17ba89d75c8002c5ae8963f504a9b0626d12675914645e",
+                    "git-init": true,
+                    "x-checker-data" : {
+                         "type" : "gnome",
+                         "name" : "evince"
+                     }
                 }
             ]
         }
