@@ -101,8 +101,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-22.05.0.tar.xz",
-                    "sha256": "a969ced458e050d6202367bd7427054e2bd19bae39e8f969910d3b9151abf958",
+                    "url": "https://poppler.freedesktop.org/poppler-22.07.0.tar.xz",
+                    "sha256": "420230c5c43782e2151259b3e523e632f4861342aad70e7e20b8773d9eaf3428",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -190,12 +190,12 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/42/gnome-desktop-42.1.tar.xz",
-                    "sha256": "2433ab606d244c3524de5b812094db8a670fb11ed9ff7180c2d021ae1fc9fc05",
-                    "x-checker-data" : {
-                         "type" : "gnome",
-                         "name" : "gnome-desktop"
-                     }
+                    "url": "https://download.gnome.org/sources/gnome-desktop/42/gnome-desktop-42.3.tar.xz",
+                    "sha256": "da50410b8f19fd7e775b00d1fe0dba67fc5e1151ded299158dc25ddadc3fa8a9",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "gnome-desktop"
+                    }
                 }
             ]
         },
@@ -213,10 +213,10 @@
                     "url": "https://download.gnome.org/sources/evince/42/evince-42.3.tar.xz",
                     "sha256": "49aecf845c946c96db17ba89d75c8002c5ae8963f504a9b0626d12675914645e",
                     "git-init": true,
-                    "x-checker-data" : {
-                         "type" : "gnome",
-                         "name" : "evince"
-                     }
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "evince"
+                    }
                 }
             ]
         }
