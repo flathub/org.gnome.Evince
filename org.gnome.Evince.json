@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "42",
+    "runtime-version": "43",
     "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -53,8 +53,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/aruiz/webp-pixbuf-loader.git",
-                    "commit": "ffddc060497ee11d6cc573dae01a528b357b91ec",
-                    "tag": "0.0.3"
+                    "commit": "1e1cad735784d16dd9b46d0415095d23029ab017",
+                    "tag": "0.0.6"
                 }
             ],
             "post-install": [
@@ -164,19 +164,6 @@
             ]
         },
         {
-            "name": "libarchive",
-            "cleanup": [
-                "/bin"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://libarchive.org/downloads/libarchive-3.6.1.tar.xz",
-                    "sha256": "5a411aceb978f43e626f0c2d1812ddd8807b645ed892453acabd532376c148e6"
-                }
-            ]
-        },
-        {
             "name": "gnome-desktop",
             "buildsystem": "meson",
             "config-opts": [
@@ -190,8 +177,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/42/gnome-desktop-42.4.tar.xz",
-                    "sha256": "1ce2c9d5067969dbe0b282ea5a9acfb8698751f03cd07e2c730240f85dc9ad25",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/43/gnome-desktop-43.tar.xz",
+                    "sha256": "3d6e153317486157596aa3802f87676414c570738f450a94a041fe8835420a69",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gnome-desktop"
@@ -210,8 +197,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/42/evince-42.3.tar.xz",
-                    "sha256": "49aecf845c946c96db17ba89d75c8002c5ae8963f504a9b0626d12675914645e",
+                    "url": "https://download.gnome.org/sources/evince/43/evince-43.0.tar.xz",
+                    "sha256": "66be0de4b47b1130486103988cc152c04aea95950ba3ef16dc20c2ef6b681d47",
                     "git-init": true,
                     "x-checker-data": {
                         "type": "gnome",
