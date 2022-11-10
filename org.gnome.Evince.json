@@ -101,8 +101,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-22.09.0.tar.xz",
-                    "sha256": "d7a8f748211359cadb774ba3e18ecda6464b34027045c0648eb30d5852a41e2e",
+                    "url": "https://poppler.freedesktop.org/poppler-22.11.0.tar.xz",
+                    "sha256": "093ba9844ed774285517361c15e21a31ba4df278a499263d4403cca74f2da828",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -197,8 +197,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/43/evince-43.0.tar.xz",
-                    "sha256": "66be0de4b47b1130486103988cc152c04aea95950ba3ef16dc20c2ef6b681d47",
+                    "url": "https://download.gnome.org/sources/evince/43/evince-43.1.tar.xz",
+                    "sha256": "6d75ca62b73bfbb600f718a098103dc6b813f9050b9594be929e29b4589d2335",
                     "git-init": true,
                     "x-checker-data": {
                         "type": "gnome",
