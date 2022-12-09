@@ -147,7 +147,11 @@
                 {
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz",
-                    "sha256": "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c"
+                    "sha256": "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "libgxps"
+                    }
                 }
             ]
         },
@@ -160,7 +164,11 @@
                 {
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/gspell/1.9/gspell-1.9.1.tar.xz",
-                    "sha256": "dcbb769dfdde8e3c0a8ed3102ce7e661abbf7ddf85df08b29915e92cd723abdd"
+                    "sha256": "dcbb769dfdde8e3c0a8ed3102ce7e661abbf7ddf85df08b29915e92cd723abdd",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "gspell"
+                    }
                 }
             ]
         },
