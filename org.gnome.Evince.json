@@ -101,8 +101,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-22.12.0.tar.xz",
-                    "sha256": "d9aa9cacdfbd0f8e98fc2b3bb008e645597ed480685757c3e7bc74b4278d15c0",
+                    "url": "https://poppler.freedesktop.org/poppler-23.01.0.tar.xz",
+                    "sha256": "fae9b88d3d5033117d38477b79220cfd0d8e252c278ec870ab1832501741fd94",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "anitya",
@@ -163,8 +163,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gspell/1.9/gspell-1.9.1.tar.xz",
-                    "sha256": "dcbb769dfdde8e3c0a8ed3102ce7e661abbf7ddf85df08b29915e92cd723abdd",
+                    "url": "https://download.gnome.org/sources/gspell/1.12/gspell-1.12.0.tar.xz",
+                    "sha256": "40d2850f1bb6e8775246fa1e39438b36caafbdbada1d28a19fa1ca07e1ff82ad",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gspell"
