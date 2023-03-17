@@ -153,7 +153,10 @@
                     "sha256": "6d27867256a35ccf9b69253eb2a88a32baca3b97d5f4ef7f82e3667fa435251c",
                     "x-checker-data": {
                         "type": "gnome",
-                        "name": "libgxps"
+                        "name": "libgxps",
+                        "versions": {
+                            ">": "0.3.0"
+                        }
                     }
                 }
             ]
