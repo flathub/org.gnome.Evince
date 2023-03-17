@@ -154,7 +154,7 @@
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "libgxps",
-                        /* TODO: remove when https://github.com/flathub/flatpak-external-data-checker/issues/338 is fixed */
+                        "// TODO": "remove when https://github.com/flathub/flatpak-external-data-checker/issues/338 is fixed",
                         "stable-only": false
                     }
                 }
