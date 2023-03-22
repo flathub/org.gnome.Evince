@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "43",
+    "runtime-version": "44",
     "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
