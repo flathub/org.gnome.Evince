@@ -1,5 +1,5 @@
 {
-    "app-id": "org.gnome.Evince",
+    "id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
     "runtime-version": "43",
     "default-branch": "stable",
