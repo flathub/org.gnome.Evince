@@ -55,8 +55,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/aruiz/webp-pixbuf-loader.git",
-                    "commit": "36b3df08af61887f3558e4d783e8710627a7a4b7",
-                    "tag": "0.2.2"
+                    "commit": "a35014104a226265e44fe30fcdb4df9305af3466",
+                    "tag": "0.2.4"
                 }
             ],
             "post-install": [
