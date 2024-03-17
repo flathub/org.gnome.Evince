@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "45",
+    "runtime-version": "46",
     "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -103,8 +103,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.12.0.tar.xz",
-                    "sha256": "beba398c9d37a9b6d02486496635e08f1df3d437cfe61dab2593f47c4d14cdbb",
+                    "url": "https://poppler.freedesktop.org/poppler-24.03.0.tar.xz",
+                    "sha256": "bafbf0db5713dec25b5d16eb2cd87e4a62351cdc40f050c3937cd8dd6882d446",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "anitya",
@@ -209,8 +209,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/45/evince-45.0.tar.xz",
-                    "sha256": "d18647d4275cbddf0d32817b1d04e307342a85be914ec4dad2d8082aaf8aa4a8",
+                    "url": "https://download.gnome.org/sources/evince/46/evince-46.0.tar.xz",
+                    "sha256": "aff6af69392c04956bfad976dec5d1583b41d5a334e937995f7c3ca0740de221",
                     "git-init": true,
                     "x-checker-data": {
                         "is-important": true,
