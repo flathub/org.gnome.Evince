@@ -1,0 +1,27 @@
+commit dbe5f654fe4ff115f6d73ae4c57d9ab7602ef064
+Author: Hubert Figuière <hub@figuiere.net>
+Date:   Fri May 24 18:38:09 2024 -0400
+
+    poppler/Catalog: call getNumPages() only once in findPage()
+    
+    This reduce the amount of time spent in mutex
+    
+    See https://gitlab.freedesktop.org/poppler/poppler/-/issues/1485
+    
+    Signed-off-by: Hubert Figuière <hub@figuiere.net>
+
+diff --git a/poppler/Catalog.cc b/poppler/Catalog.cc
+index 211197a4..c50e321c 100644
+--- a/poppler/Catalog.cc
++++ b/poppler/Catalog.cc
+@@ -347,8 +347,9 @@ bool Catalog::cachePageTree(int page)
+ int Catalog::findPage(const Ref pageRef)
+ {
+     int i;
++    int count = getNumPages();
+ 
+-    for (i = 0; i < getNumPages(); ++i) {
++    for (i = 0; i < count; ++i) {
+         Ref *ref = getPageRef(i + 1);
+         if (ref != nullptr && *ref == pageRef) {
+             return i + 1;
