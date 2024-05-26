@@ -110,6 +110,13 @@
                         "project-id": 3686,
                         "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
                     }
+                },
+                {
+                    "type": "patch",
+                    "paths": [
+                        "patches/poppler-perf.patch",
+                        "patches/poppler-perf2.patch"
+                    ]
                 }
             ]
         },
