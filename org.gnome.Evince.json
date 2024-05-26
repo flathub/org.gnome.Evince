@@ -113,7 +113,10 @@
                 },
                 {
                     "type": "patch",
-                    "path": "patches/poppler-perf.patch"
+                    "paths": [
+                        "patches/poppler-perf.patch",
+                        "patches/poppler-perf2.patch"
+                    ]
                 }
             ]
         },
