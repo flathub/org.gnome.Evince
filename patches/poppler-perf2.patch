@@ -1,0 +1,332 @@
+commit 680fc58a400c36a50917ddfe8aa33e4c2a44f6f5
+Author: Hubert Figuière <hub@figuiere.net>
+Date:   Sun May 26 08:57:18 2024 -0400
+
+    poppler/Catalog: map page by Ref to make findPage() faster (#1485)
+    
+    findPage used to iterate linearly to find a page by Ref, instead
+    we use a map.
+    
+    See https://gitlab.freedesktop.org/poppler/poppler/-/issues/1485
+    
+    Signed-off-by: Hubert Figuière <hub@figuiere.net>
+
+diff --git a/poppler/Catalog.cc b/poppler/Catalog.cc
+index 488c61fd..b2d3e427 100644
+--- a/poppler/Catalog.cc
++++ b/poppler/Catalog.cc
+@@ -221,44 +221,57 @@ Ref *Catalog::getPageRef(int i)
+     return &pages[i - 1].second;
+ }
+ 
+-bool Catalog::cachePageTree(int page)
++// Init page list. Return true on success, including if already inited.
++bool Catalog::initPageList()
+ {
+-    if (pagesList == nullptr) {
++    // It's already initialized
++    if (pagesList != nullptr) {
++        return true;
++    }
+ 
+-        Ref pagesRef;
++    Ref pagesRef;
+ 
+-        Object catDict = xref->getCatalog();
++    Object catDict = xref->getCatalog();
+ 
+-        if (catDict.isDict()) {
+-            const Object &pagesDictRef = catDict.dictLookupNF("Pages");
+-            if (pagesDictRef.isRef() && pagesDictRef.getRefNum() >= 0 && pagesDictRef.getRefNum() < xref->getNumObjects()) {
+-                pagesRef = pagesDictRef.getRef();
+-            } else {
+-                error(errSyntaxError, -1, "Catalog dictionary does not contain a valid \"Pages\" entry");
+-                return false;
+-            }
++    if (catDict.isDict()) {
++        const Object &pagesDictRef = catDict.dictLookupNF("Pages");
++        if (pagesDictRef.isRef() && pagesDictRef.getRefNum() >= 0 && pagesDictRef.getRefNum() < xref->getNumObjects()) {
++            pagesRef = pagesDictRef.getRef();
+         } else {
+-            error(errSyntaxError, -1, "Could not find catalog dictionary");
++            error(errSyntaxError, -1, "Catalog dictionary does not contain a valid \"Pages\" entry");
+             return false;
+         }
++    } else {
++        error(errSyntaxError, -1, "Could not find catalog dictionary");
++        return false;
++    }
+ 
+-        Object obj = catDict.dictLookup("Pages");
+-        // This should really be isDict("Pages"), but I've seen at least one
+-        // PDF file where the /Type entry is missing.
+-        if (!obj.isDict()) {
+-            error(errSyntaxError, -1, "Top-level pages object is wrong type ({0:s})", obj.getTypeName());
+-            return false;
+-        }
++    Object obj = catDict.dictLookup("Pages");
++    // This should really be isDict("Pages"), but I've seen at least one
++    // PDF file where the /Type entry is missing.
++    if (!obj.isDict()) {
++        error(errSyntaxError, -1, "Top-level pages object is wrong type ({0:s})", obj.getTypeName());
++        return false;
++    }
+ 
+-        pages.clear();
+-        attrsList = new std::vector<PageAttrs *>();
+-        attrsList->push_back(new PageAttrs(nullptr, obj.getDict()));
+-        pagesList = new std::vector<Object>();
+-        pagesList->push_back(std::move(obj));
+-        pagesRefList = new std::vector<Ref>();
+-        pagesRefList->push_back(pagesRef);
+-        kidsIdxList = new std::vector<int>();
+-        kidsIdxList->push_back(0);
++    pages.clear();
++    refPageMap.clear();
++    attrsList = new std::vector<PageAttrs *>();
++    attrsList->push_back(new PageAttrs(nullptr, obj.getDict()));
++    pagesList = new std::vector<Object>();
++    pagesList->push_back(std::move(obj));
++    pagesRefList = new std::vector<Ref>();
++    pagesRefList->push_back(pagesRef);
++    kidsIdxList = new std::vector<int>();
++    kidsIdxList->push_back(0);
++
++    return true;
++}
++
++bool Catalog::cachePageTree(int page)
++{
++    if (!initPageList()) {
++        return false;
+     }
+ 
+     while (true) {
+@@ -267,94 +280,122 @@ bool Catalog::cachePageTree(int page)
+             return true;
+         }
+ 
+-        if (pagesList->empty()) {
++        if (!cacheSubTree()) {
+             return false;
+         }
++    }
+ 
+-        Object kids = pagesList->back().dictLookup("Kids");
+-        if (!kids.isArray()) {
+-            error(errSyntaxError, -1, "Kids object (page {0:uld}) is wrong type ({1:s})", pages.size() + 1, kids.getTypeName());
+-            return false;
+-        }
++    return false;
++}
+ 
+-        int kidsIdx = kidsIdxList->back();
+-        if (kidsIdx >= kids.arrayGetLength()) {
+-            pagesList->pop_back();
+-            pagesRefList->pop_back();
+-            delete attrsList->back();
+-            attrsList->pop_back();
+-            kidsIdxList->pop_back();
+-            if (!kidsIdxList->empty()) {
+-                kidsIdxList->back()++;
+-            }
+-            continue;
+-        }
++// Cache the page tree until the page ref and return the page number if found.
++// Or 0.
++std::size_t Catalog::cachePageTreeForRef(const Ref untilPageRef)
++{
++    if (!initPageList()) {
++        return 0;
++    }
++    while (true) {
+ 
+-        const Object &kidRef = kids.arrayGetNF(kidsIdx);
+-        if (!kidRef.isRef()) {
+-            error(errSyntaxError, -1, "Kid object (page {0:uld}) is not an indirect reference ({1:s})", pages.size() + 1, kidRef.getTypeName());
+-            return false;
++        auto iter = refPageMap.find(untilPageRef);
++        if (iter != refPageMap.end()) {
++            return iter->second;
+         }
+ 
+-        bool loop = false;
+-        ;
+-        for (const Ref &pageRef : *pagesRefList) {
+-            if (pageRef.num == kidRef.getRefNum()) {
+-                loop = true;
+-                break;
+-            }
+-        }
+-        if (loop) {
+-            error(errSyntaxError, -1, "Loop in Pages tree");
+-            kidsIdxList->back()++;
+-            continue;
++        if (!cacheSubTree()) {
++            return 0;
+         }
++    }
+ 
+-        Object kid = kids.arrayGet(kidsIdx);
+-        if (kid.isDict("Page") || (kid.isDict() && !kid.getDict()->hasKey("Kids"))) {
+-            PageAttrs *attrs = new PageAttrs(attrsList->back(), kid.getDict());
+-            auto p = std::make_unique<Page>(doc, pages.size() + 1, std::move(kid), kidRef.getRef(), attrs, form);
+-            if (!p->isOk()) {
+-                error(errSyntaxError, -1, "Failed to create page (page {0:uld})", pages.size() + 1);
+-                return false;
+-            }
++    return 0;
++}
+ 
+-            if (pages.size() >= std::size_t(numPages)) {
+-                error(errSyntaxError, -1, "Page count in top-level pages object is incorrect");
+-                return false;
+-            }
++// Return true to continue, false on error.
++bool Catalog::cacheSubTree()
++{
++    if (pagesList->empty()) {
++        return false;
++    }
+ 
+-            pages.emplace_back(std::move(p), kidRef.getRef());
++    Object kids = pagesList->back().dictLookup("Kids");
++    if (!kids.isArray()) {
++        error(errSyntaxError, -1, "Kids object (page {0:uld}) is wrong type ({1:s})", pages.size() + 1, kids.getTypeName());
++        return false;
++    }
+ 
++    int kidsIdx = kidsIdxList->back();
++    if (kidsIdx >= kids.arrayGetLength()) {
++        pagesList->pop_back();
++        pagesRefList->pop_back();
++        delete attrsList->back();
++        attrsList->pop_back();
++        kidsIdxList->pop_back();
++        if (!kidsIdxList->empty()) {
+             kidsIdxList->back()++;
++        }
++        return true;
++    }
+ 
+-            // This should really be isDict("Pages"), but I've seen at least one
+-            // PDF file where the /Type entry is missing.
+-        } else if (kid.isDict()) {
+-            attrsList->push_back(new PageAttrs(attrsList->back(), kid.getDict()));
+-            pagesRefList->push_back(kidRef.getRef());
+-            pagesList->push_back(std::move(kid));
+-            kidsIdxList->push_back(0);
+-        } else {
+-            error(errSyntaxError, -1, "Kid object (page {0:uld}) is wrong type ({1:s})", pages.size() + 1, kid.getTypeName());
+-            kidsIdxList->back()++;
++    const Object &kidRef = kids.arrayGetNF(kidsIdx);
++    if (!kidRef.isRef()) {
++        error(errSyntaxError, -1, "Kid object (page {0:uld}) is not an indirect reference ({1:s})", pages.size() + 1, kidRef.getTypeName());
++        return false;
++    }
++
++    bool loop = false;
++    ;
++    for (const Ref &pageRef : *pagesRefList) {
++        if (pageRef.num == kidRef.getRefNum()) {
++            loop = true;
++            break;
++        }
++    }
++    if (loop) {
++        error(errSyntaxError, -1, "Loop in Pages tree");
++        kidsIdxList->back()++;
++        return true;
++    }
++
++    Object kid = kids.arrayGet(kidsIdx);
++    if (kid.isDict("Page") || (kid.isDict() && !kid.getDict()->hasKey("Kids"))) {
++        PageAttrs *attrs = new PageAttrs(attrsList->back(), kid.getDict());
++        auto p = std::make_unique<Page>(doc, pages.size() + 1, std::move(kid), kidRef.getRef(), attrs, form);
++        if (!p->isOk()) {
++            error(errSyntaxError, -1, "Failed to create page (page {0:uld})", pages.size() + 1);
++            return false;
+         }
++
++        if (pages.size() >= std::size_t(numPages)) {
++            error(errSyntaxError, -1, "Page count in top-level pages object is incorrect");
++            return false;
++        }
++
++        auto ref = kidRef.getRef();
++        pages.emplace_back(std::move(p), ref);
++        refPageMap.insert(std::make_pair(ref, pages.size()));
++
++        kidsIdxList->back()++;
++
++        // This should really be isDict("Pages"), but I've seen at least one
++        // PDF file where the /Type entry is missing.
++    } else if (kid.isDict()) {
++        attrsList->push_back(new PageAttrs(attrsList->back(), kid.getDict()));
++        pagesRefList->push_back(kidRef.getRef());
++        pagesList->push_back(std::move(kid));
++        kidsIdxList->push_back(0);
++    } else {
++        error(errSyntaxError, -1, "Kid object (page {0:uld}) is wrong type ({1:s})", pages.size() + 1, kid.getTypeName());
++        kidsIdxList->back()++;
+     }
+ 
+-    return false;
++    return true;
+ }
+ 
+ int Catalog::findPage(const Ref pageRef)
+ {
+-    const int count = getNumPages();
++    catalogLocker();
+ 
+-    for (int i = 0; i < count; ++i) {
+-        Ref *ref = getPageRef(i + 1);
+-        if (ref != nullptr && *ref == pageRef) {
+-            return i + 1;
+-        }
+-    }
+-    return 0;
++    return cachePageTreeForRef(pageRef);
+ }
+ 
+ std::unique_ptr<LinkDest> Catalog::findDest(const GooString *name)
+@@ -855,6 +896,7 @@ int Catalog::getNumPages()
+                     auto p = std::make_unique<Page>(doc, 1, std::move(pagesDict), pageRef, new PageAttrs(nullptr, pageDict), form);
+                     if (p->isOk()) {
+                         pages.emplace_back(std::move(p), pageRef);
++                        refPageMap.insert(std::make_pair(pageRef, pages.size()));
+ 
+                         numPages = 1;
+                     } else {
+diff --git a/poppler/Catalog.h b/poppler/Catalog.h
+index 8848e44a..121f9ab7 100644
+--- a/poppler/Catalog.h
++++ b/poppler/Catalog.h
+@@ -48,6 +48,7 @@
+ 
+ #include <memory>
+ #include <optional>
++#include <unordered_map>
+ #include <vector>
+ 
+ class PDFDoc;
+@@ -277,6 +278,7 @@ private:
+     PDFDoc *doc;
+     XRef *xref; // the xref table for this PDF file
+     std::vector<std::pair<std::unique_ptr<Page>, Ref>> pages;
++    std::unordered_map<Ref, std::size_t> refPageMap;
+     std::vector<Object> *pagesList;
+     std::vector<Ref> *pagesRefList;
+     std::vector<PageAttrs *> *attrsList;
+@@ -303,7 +305,10 @@ private:
+     PageLayout pageLayout; // page layout
+     Object additionalActions; // page additional actions
+ 
++    bool initPageList(); // init the page list. called by cachePageTree.
++    bool cacheSubTree(); // called by cachePageTree.
+     bool cachePageTree(int page); // Cache first <page> pages.
++    std::size_t cachePageTreeForRef(const Ref pageRef); // Cache until <pageRef>.
+     Object *findDestInTree(Object *tree, GooString *name, Object *obj);
+ 
+     Object *getNames();
