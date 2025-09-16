@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "47",
+    "runtime-version": "48",
     "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -102,8 +102,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-25.05.0.tar.xz",
-                    "sha256": "9b1627c5b76816ac5e4052a03f5b605ba40b45cf06b02cadd0479620b499ab38",
+                    "url": "https://poppler.freedesktop.org/poppler-25.08.0.tar.xz",
+                    "sha256": "425ed4d4515a093bdcdbbaac6876f20617451edc710df6a4fd6c45dd67eb418d",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "anitya",
@@ -197,8 +197,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-44.1.tar.xz",
-                    "sha256": "ae7ca55dc9e08914999741523a17d29ce223915626bd2462a120bf96f47a79ab",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-44.3.tar.xz",
+                    "sha256": "40efa9aa8d50effed9227a3d70671e32e9dc35e20f331cab3b562975978f4f8d",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gnome-desktop"
@@ -217,8 +217,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/48/evince-48.0.tar.xz",
-                    "sha256": "cd2f658355fa9075fdf9e5b44aa0af3a7e0928c55614eb1042b36176cf451126",
+                    "url": "https://download.gnome.org/sources/evince/48/evince-48.1.tar.xz",
+                    "sha256": "7d8b9a6fa3a05d3f5b9048859027688c73a788ff6e923bc3945126884943fa10",
                     "git-init": true,
                     "x-checker-data": {
                         "is-important": true,
