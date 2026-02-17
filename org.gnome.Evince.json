@@ -40,29 +40,6 @@
     ],
     "modules": [
         {
-            "name": "webp-pixbuf-loader",
-            "buildsystem": "meson",
-            "build-options": {
-                "env": {
-                    "GDK_PIXBUF_MODULEDIR": "/app/lib/evince/gdk-pixbuf/2.10.0/"
-                }
-            },
-            "config-opts": [
-                "-Dgdk_pixbuf_moduledir=/app/lib/evince/gdk-pixbuf/2.10.0/"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/aruiz/webp-pixbuf-loader.git",
-                    "commit": "52232e4ba282b2fed68e8fcb4b5d45ed0eaa4ed3",
-                    "tag": "0.2.7"
-                }
-            ],
-            "post-install": [
-                "gdk-pixbuf-query-loaders > $GDK_PIXBUF_MODULEDIR/loaders.cache"
-            ]
-        },
-        {
             "name": "popplerdata",
             "no-autogen": true,
             "make-install-args": [
