@@ -198,6 +198,10 @@
                         "type": "gnome",
                         "name": "evince"
                     }
+                },
+                {
+                    "type": "patch",
+                    "path": "fix-appdata.patch"
                 }
             ]
         }
