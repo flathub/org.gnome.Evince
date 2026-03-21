@@ -1,0 +1,58 @@
+From 0f7bc76709d49dff2febaa76340b4b37f48cbcca Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Sat, 21 Mar 2026 22:10:33 +0300
+Subject: [PATCH] Fix appdata paper cuts
+
+### Fix empty translation error
+
+> E:org.gnome.Evince.metainfo.xml:tag-empty:283 The mentioned tag is empty,
+> which is highly likely not intended as it should have content.
+
+### Fix appdata paper cuts
+
+- Fix developer ID
+- Fix homepage error
+---
+ data/org.gnome.Evince.metainfo.xml.in | 6 +++---
+ po/hi.po                              | 2 --
+ 2 files changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/data/org.gnome.Evince.metainfo.xml.in b/data/org.gnome.Evince.metainfo.xml.in
+index 08242c8..6f27ffa 100644
+--- a/data/org.gnome.Evince.metainfo.xml.in
++++ b/data/org.gnome.Evince.metainfo.xml.in
+@@ -39,15 +39,15 @@
+     <caption>Advanced highlighting and annotation</caption>
+     </screenshot>
+   </screenshots>
+-  <url type="homepage">https://apps.gnome.org/Evince</url>
++  <url type="homepage">https://gitlab.gnome.org/GNOME/evince</url>
+   <url type="bugtracker">https://gitlab.gnome.org/GNOME/evince/-/issues/</url>
+   <url type="translate">https://l10n.gnome.org/module/evince/</url>
+   <url type="contribute">https://welcome.gnome.org/app/Evince</url>
+   <url type="donation">https://www.gnome.org/donate/</url>
+   <url type="vcs-browser">https://gitlab.gnome.org/GNOME/evince/</url>
+   <project_group>GNOME</project_group>
+-  <developer id="org.gnome">
+-    <name>The GNOME Project</name>
++  <developer id="org.gnome.gitlab.evince">
++    <name>The Evince Developers</name>
+   </developer>
+   <update_contact>https://discourse.gnome.org/tag/evince</update_contact>
+   <kudos>
+diff --git a/po/hi.po b/po/hi.po
+index 6cb22cb..3e4b385 100644
+--- a/po/hi.po
++++ b/po/hi.po
+@@ -411,8 +411,6 @@ msgid ""
+ "Evince supports documents in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (with "
+ "SyncTeX), and Comic Books archives (CBR, CBT, CBZ, CB7)."
+ msgstr ""
+-"एविंस निम्नलिखित दस्तावेज़ प्रारूप का समर्थन करता है: PDF, PS, EPS, XPS, DjVu, TIFF, "
+-"DVI (SyncTeX के साथ) और कॉमिक बुक अभिलेखागार (CBR, CBT, CBZ & CB7)।"
+ 
+ #: data/org.gnome.Evince.metainfo.xml.in:35
+ msgid "A clear, simple UI"
+--
+libgit2 1.7.2
+
