@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "48",
+    "runtime-version": "50",
     "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -29,39 +29,12 @@
     "cleanup": [
         "/include",
         "/lib/pkgconfig",
-        "/share/pkgconfig",
-        "/share/aclocal",
-        "/man",
         "/share/man",
-        "/share/gtk-doc",
-        "/share/vala",
+        "/share/pkgconfig",
         "*.la",
         "*.a"
     ],
     "modules": [
-        {
-            "name": "webp-pixbuf-loader",
-            "buildsystem": "meson",
-            "build-options": {
-                "env": {
-                    "GDK_PIXBUF_MODULEDIR": "/app/lib/evince/gdk-pixbuf/2.10.0/"
-                }
-            },
-            "config-opts": [
-                "-Dgdk_pixbuf_moduledir=/app/lib/evince/gdk-pixbuf/2.10.0/"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/aruiz/webp-pixbuf-loader.git",
-                    "commit": "52232e4ba282b2fed68e8fcb4b5d45ed0eaa4ed3",
-                    "tag": "0.2.7"
-                }
-            ],
-            "post-install": [
-                "gdk-pixbuf-query-loaders > $GDK_PIXBUF_MODULEDIR/loaders.cache"
-            ]
-        },
         {
             "name": "popplerdata",
             "no-autogen": true,
@@ -102,8 +75,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-26.02.0.tar.xz",
-                    "sha256": "dded8621f7b2f695c91063aab1558691c8418374cd583501e89ed39487e7ab77",
+                    "url": "https://poppler.freedesktop.org/poppler-26.03.0.tar.xz",
+                    "sha256": "8b3c5e2a9f2ab4c3ec5029f28af1b433c6b71f0d1e7b3997aa561cf1c0ca4ebe",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "anitya",
@@ -174,8 +147,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.2.tar.xz",
-                    "sha256": "4ec7e5accc9013281bacd6bbc00006be733818b81ba3fe332c1e876c7e1e1477",
+                    "url": "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.3.tar.xz",
+                    "sha256": "e8b39c67556f75495362952f81ca241b5a3c17c75960b77fc93fa702c612a5a4",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gspell"
@@ -197,8 +170,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-44.4.tar.xz",
-                    "sha256": "1d8cb9c6a328eb689b0c1269cf53834cc84d851d7e71970cdabba82706b44984",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-44.5.tar.xz",
+                    "sha256": "20e0995a6e3a03e8c1026c5a27bc3f45e69ffcc392ad743dcab6107a541d232f",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gnome-desktop"
