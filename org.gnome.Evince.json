@@ -194,7 +194,7 @@
                     "sha256": "f296c5c662886635d4cd597e8ac0afcde7982be4486533c2b7f095b268be8668",
                     "git-init": true,
                     "x-checker-data": {
-                        "is-important": true,
+                        "is-main-source": true,
                         "type": "gnome",
                         "name": "evince"
                     }
