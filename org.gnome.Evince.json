@@ -75,8 +75,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-26.07.0.tar.xz",
-                    "sha256": "304832f48f8a47fdca90c6b6d1f684e68f37c10c9a0726f345f4ca9df4ca01e2",
+                    "url": "https://poppler.freedesktop.org/poppler-26.08.0.tar.xz",
+                    "sha256": "dc906e68cea698109706ac6aa3d2c9d4512fcfcac42d90b8afcda486d1b9abd0",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "anitya",
@@ -147,8 +147,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.4.tar.xz",
-                    "sha256": "e73a89d68c70f8748aefb6b0f5cfdfec3ff173cf4449837fd6cb17d1e9fcf486",
+                    "url": "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.5.tar.xz",
+                    "sha256": "788783b56fc3d03283b3aa29302d0b958aeca88835e10b1ec61f19e0efc7e8a4",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gspell"
@@ -170,8 +170,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-desktop/44/gnome-desktop-44.5.tar.xz",
-                    "sha256": "20e0995a6e3a03e8c1026c5a27bc3f45e69ffcc392ad743dcab6107a541d232f",
+                    "url": "https://download.gnome.org/sources/gnome-desktop/51/gnome-desktop-51.0.tar.xz",
+                    "sha256": "9ebeb9f1769d3c310caeadd921ab34c8f264b92937740518b3bc859a579a6912",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gnome-desktop"
