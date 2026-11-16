@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.Evince",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "50",
+    "runtime-version": "51",
     "default-branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "evince",
@@ -75,8 +75,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-26.10.0.tar.xz",
-                    "sha256": "6792cb7c69205007ad87d2e936cecc5b3a31fac29ab54ffc3175fdb6b2a6ce35",
+                    "url": "https://poppler.freedesktop.org/poppler-26.11.0.tar.xz",
+                    "sha256": "41c32680160addf5a8dd7a830e4869c01e9f6bee1abb91e44fabd1ba9d7828fb",
                     "x-checker-data": {
                         "is-important": true,
                         "type": "anitya",
@@ -157,6 +157,22 @@
             ]
         },
         {
+            "name": "libhandy",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dexamples=false",
+                "-Dtests=false"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "tag": "1.8.3",
+                    "commit": "9b0071408ce86a3ef843806fddd723a85f6f2416",
+                    "url": "https://gitlab.gnome.org/GNOME/libhandy.git"
+                }
+            ]
+        },
+        {
             "name": "gnome-desktop",
             "buildsystem": "meson",
             "config-opts": [
@@ -190,8 +206,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evince/48/evince-48.4.tar.xz",
-                    "sha256": "f296c5c662886635d4cd597e8ac0afcde7982be4486533c2b7f095b268be8668",
+                    "url": "https://download.gnome.org/sources/evince/48/evince-48.5.tar.xz",
+                    "sha256": "0c7aba9485d0b6fb9f3e0ee75be916544744dc2ed9d58a2f9936a2e0434ac4a6",
                     "git-init": true,
                     "x-checker-data": {
                         "is-main-source": true,
